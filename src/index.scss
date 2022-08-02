@@ -1,0 +1,14 @@
+.default-content {
+	max-width: 1200px;
+	box-sizing: border-box;
+	margin: 0 auto;
+
+	@media screen and (max-width: 1200px) {
+		max-width: 900px;
+	}
+
+	@media screen and (max-width: 900px) {
+		max-width: 100%;
+		padding: 0 30px;
+	}
+}

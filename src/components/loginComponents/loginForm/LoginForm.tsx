@@ -70,7 +70,7 @@ const LoginForm: React.FC = () => {
 					placeholder="Логин"
 					value={loginVal}
 					required={true}
-					onInput={(e: React.ChangeEvent<HTMLInputElement>): void => {
+					onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
 						setLoginVal(e.target.value);
 					}}
 				/>
@@ -79,7 +79,7 @@ const LoginForm: React.FC = () => {
 					value={passwordVal}
 					required={true}
 					autoComplete="autocomplete"
-					onInput={(e: React.ChangeEvent<HTMLInputElement>): void => {
+					onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
 						setPasswordVal(e.target.value);
 					}}
 				/>

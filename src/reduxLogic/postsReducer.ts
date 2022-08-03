@@ -1,6 +1,5 @@
-import { IAuthData, IPostsState } from '../interfaces';
-import { getCookie } from '../cookieHelpers';
-import { STORE_POSTS, CHANGE_PAGE } from './types';
+import { IPostsState } from '../interfaces';
+import { STORE_POSTS, CHANGE_PAGE, STORE_AUTHORS, STORE_TAGS, POST_ERROR } from './types';
 const initialValue: IPostsState = {
 	posts: [],
 	pagination: {
@@ -9,6 +8,9 @@ const initialValue: IPostsState = {
 		perPage: '',
 		total: '',
 	},
+	authors: [],
+	tags: [],
+	errorList: [],
 };
 
 export const postsReducer = (state = initialValue, action: any) => {
@@ -17,6 +19,22 @@ export const postsReducer = (state = initialValue, action: any) => {
 			return { ...state, posts: action.payload.posts, pagination: action.payload.pagination };
 		case CHANGE_PAGE:
 			return { ...state, pagination: { ...state.pagination, current: action.payload.payload + '' } };
+		case STORE_AUTHORS:
+			return {
+				...state,
+				authors: [...action.payload],
+			};
+		case STORE_TAGS:
+			return {
+				...state,
+				tags: [...action.payload],
+			};
+		case POST_ERROR: {
+			return {
+				...state,
+				errorList: [...action.payload],
+			};
+		}
 		default:
 			return state;
 	}

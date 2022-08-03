@@ -1,5 +1,18 @@
-import { IAuthData } from '../interfaces';
-import { COLLECT_USER_AUTH_DATA, REFRESH_TOKEN, GET_POSTS, STORE_POSTS, CHANGE_PAGE, LOGOUT } from './types';
+import { IAuthData, IAuthor, IAuthTokens, IPostTemplate, ITag } from '../interfaces';
+import {
+	COLLECT_USER_AUTH_DATA,
+	REFRESH_TOKEN,
+	GET_POSTS,
+	STORE_POSTS,
+	CHANGE_PAGE,
+	LOGOUT,
+	GET_AUTHORS,
+	STORE_AUTHORS,
+	GET_TAGS,
+	STORE_TAGS,
+	NEW_POST,
+	POST_ERROR,
+} from './types';
 
 export function collectUserAuthData(authData: IAuthData) {
 	if (authData) {
@@ -13,7 +26,47 @@ export function collectUserAuthData(authData: IAuthData) {
 	}
 }
 
-export function logout(payload: any) {
+export function newPost(payload: IPostTemplate) {
+	return {
+		type: NEW_POST,
+		payload: { ...payload },
+	};
+}
+
+export function pushError(payload: string[]) {
+	return {
+		type: POST_ERROR,
+		payload: [...payload],
+	};
+}
+
+export function getAuthors() {
+	return {
+		type: GET_AUTHORS,
+	};
+}
+
+export function getTags() {
+	return {
+		type: GET_TAGS,
+	};
+}
+
+export function storeAuthors(payload: IAuthor[] | any) {
+	return {
+		type: STORE_AUTHORS,
+		payload: [...payload],
+	};
+}
+
+export function storeTags(payload: ITag[] | any) {
+	return {
+		type: STORE_TAGS,
+		payload: [...payload],
+	};
+}
+
+export function logout(payload: IAuthTokens) {
 	return {
 		type: LOGOUT,
 		payload: {

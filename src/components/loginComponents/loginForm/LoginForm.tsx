@@ -35,7 +35,6 @@ const LoginForm: React.FC = () => {
 						})
 					);
 					dispatch(push('/admin'));
-
 					break;
 				case 400:
 					setErrorList([data.message]);

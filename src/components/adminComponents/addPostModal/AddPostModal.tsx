@@ -95,7 +95,7 @@ const AddPostModal: React.FC = () => {
 							placeholder="Автор"
 						/>
 
-						<Upload multiple={false} beforeUpload={noRequest}>
+						<Upload multiple={false} beforeUpload={noRequest} >
 							<Button>Загрузить картинку</Button>
 						</Upload>
 

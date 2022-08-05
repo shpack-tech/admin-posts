@@ -21,6 +21,8 @@ export function collectUserAuthData(authData: IAuthData) {
 			payload: {
 				authToken: authData.authToken,
 				refreshToken: authData.refreshToken,
+				authExpires: authData.authExpires,
+				refreshExpires: authData.refreshExpires,
 			},
 		};
 	}
